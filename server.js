@@ -12,6 +12,7 @@ app.use(express.json());
 const login_script = require("./login_script");
 const search_script = require("./search_script");
 const imageSaver = require("./imageSaver.js");
+const cors = require("cors");
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -22,6 +23,7 @@ const upload = require("./multer.js");
 const User = require("./model/user");
 const Missing = require("./model/missing");
 const Criminal = require("./model/criminal");
+app.use(cors({ origin: true }));
 
 if(process.env.NODE_ENV==='production'){
   app.use(express.static('client/build'));
